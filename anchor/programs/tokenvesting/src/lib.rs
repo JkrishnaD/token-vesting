@@ -122,14 +122,14 @@ pub struct VestingAccount {
 
 #[account]
 pub struct EmployeeAccount {
-    pub benificiary: Pubkey,
-    pub start_time: i64,
-    pub end_time: i64,
-    pub cliff_time: i64,
-    pub vesting_account: Pubkey,
-    pub total_amount: u64,
-    pub total_withdraw: u64,
-    pub bump: u8,
+    pub benificiary: Pubkey, // 32
+    pub start_time: i64, // 8
+    pub end_time: i64, // 8
+    pub cliff_time: i64, // 8
+    pub vesting_account: Pubkey, // 32
+    pub total_amount: u64, // 8
+    pub total_withdraw: u64, // 8
+    pub bump: u8, // 1
 }
 
 #[derive(Accounts)]
@@ -172,7 +172,7 @@ pub struct CreateEmployeeAccount<'info> {
     pub vesting_account: Account<'info, VestingAccount>,
     #[account(
         init,
-        space = 8 + 104,
+        space = 8 + 105, // the size of EmployeeAccount struct
         payer = owner,
         seeds = [b"employee_vesting", benificiary.key().as_ref(), vesting_account.key().as_ref()],
         bump
