@@ -21,7 +21,7 @@ export function getTokenvestingProgramId(cluster: Cluster) {
     case 'devnet':
     case 'testnet':
       // This is the program ID for the Tokenvesting program on devnet and testnet.
-      return new PublicKey('coUnmi3oBUtwtd9fjeAvSsJssXh5A5xyPbhpewyzRVF')
+      return new PublicKey('8QZkjV2un7BG5ys72TxncWQHM175kxDc1ptHWsg4bKwu')
     case 'mainnet-beta':
     default:
       return TOKENVESTING_PROGRAM_ID
